@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyprism-v2"
+version = "2.0.0"
+description = "Symmetry- and irreducibility-aware quantum circuit partitioning"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.22"]
+
+[project.optional-dependencies]
+bench = ["pandas>=1.4", "matplotlib>=3.5"]
+metis = ["PyMetis>=2023.1"]
+hypergraph = ["kahypar>=1.1"]
+moo = ["pymoo>=0.6"]
+all = ["pandas>=1.4", "matplotlib>=3.5", "PyMetis>=2023.1", "kahypar>=1.1",
+       "pymoo>=0.6"]
+
+[project.scripts]
+pyprism-benchmark = "pyprism_v2.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["pyprism_v2*"]
